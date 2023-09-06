@@ -21,5 +21,6 @@ public class TankModel_VS
         Health = tankScriptableObject.Health;
 
         //Debug.Log("Tank speed " + MovementSpeed + " health " + Health);
+        Debug.Log("Player tank type " + tankScriptableObject.TankType);
     }
 }
