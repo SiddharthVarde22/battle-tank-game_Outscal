@@ -23,4 +23,18 @@ public class TankController_VS
         Quaternion rotationToAdd = Quaternion.Euler(0, rotation, 0);
         TankView.transform.rotation *= rotationToAdd;
     }
+
+    public void PlayerTankShoot(Vector3 startPosition, Quaternion startRotation)
+    {
+        BulletSpawnService.Instance.SpawnBullet(TankModel.tankScriptableData.Damage, startPosition, startRotation);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        TankModel.TakeDamage(damage);
+        if(TankModel.Health <= 0)
+        {
+            GameObject.Destroy(TankView.gameObject);
+        }
+    }
 }

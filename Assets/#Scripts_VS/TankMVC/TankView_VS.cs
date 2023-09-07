@@ -8,6 +8,9 @@ public class TankView_VS : MonoBehaviour
 
     float horizontalInput, verticalInput;
 
+    [SerializeField]
+    Transform bulletSpawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class TankView_VS : MonoBehaviour
     void Update()
     {
         TakeUserInput();
+        TakeFireInput();
     }
 
     public void SetTankController(TankController_VS tankController)
@@ -41,6 +45,19 @@ public class TankView_VS : MonoBehaviour
         }
     }
 
+    void TakeFireInput()
+    {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            OnShootPressed();
+        }
+    }
+
+    void OnShootPressed()
+    {
+        tankController.PlayerTankShoot(bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+    }
+
     void CallPlayerMove()
     {
         tankController.PlayerMove(verticalInput);
@@ -49,5 +66,10 @@ public class TankView_VS : MonoBehaviour
     void CallPlayerRotate()
     {
         tankController.PlayerRotate(horizontalInput);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        tankController.TakeDamage(damage);
     }
 }

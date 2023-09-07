@@ -49,4 +49,9 @@ public class EnemyTankView_VS : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         SetRandomTargetForEnemyTank();
     }
+
+    public void TakeDamage(float damage)
+    {
+        EnemyTankController.TakeDamage(damage);
+    }
 }

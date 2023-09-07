@@ -38,4 +38,14 @@ public class EnemyTankController_VS
         this.target = target;
         IsMoving = true;
     }
+
+    public void TakeDamage(float damage)
+    {
+        EnemyTankModel.TakeDamage(damage);
+
+        if(EnemyTankModel.Health <= 0)
+        {
+            GameObject.Destroy(EnemyTankView.gameObject);
+        }
+    }
 }
