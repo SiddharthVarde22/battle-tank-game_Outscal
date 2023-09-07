@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40a06cea7fb0e4439ef5767183ea442, type: 3}
+  m_Name: RedEnemyTankScriptableObject
+  m_EditorClassIdentifier: 
+  TankType: 1
+  MovementSpeed: 10
+  RotationSpeed: 50
+  Health: 100
+  Damage: 10
+  EnemyTankView: {fileID: 7495558122696754727, guid: f8b8cc97f9138084e92afe21d434bf2e,
+    type: 3}
