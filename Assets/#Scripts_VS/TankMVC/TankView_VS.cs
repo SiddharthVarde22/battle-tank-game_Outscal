@@ -22,6 +22,13 @@ public class TankView_VS : MonoBehaviour
     {
         TakeUserInput();
         TakeFireInput();
+
+        //Just for testing
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            //Debug.Log("Taking damage");
+            TakeDamage(50);
+        }
     }
 
     public void SetTankController(TankController_VS tankController)
