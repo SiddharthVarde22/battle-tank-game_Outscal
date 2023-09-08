@@ -34,7 +34,35 @@ public class TankController_VS
         TankModel.TakeDamage(damage);
         if(TankModel.Health <= 0)
         {
+            DestroyEverything();
             GameObject.Destroy(TankView.gameObject);
+        }
+    }
+
+    void DestroyEverything()
+    {
+        DestroyTanks(0.1f);
+        DestroyEnvironment(0.1f);
+    }
+
+    async void DestroyTanks(float timeDelay)
+    {
+        GameObject[] tanks = GameObject.FindGameObjectsWithTag("Tank");
+        for (int i = 0; i < tanks.Length; i++)
+        {
+            GameObject.Destroy(tanks[i]);
+            await new WaitForSeconds(timeDelay);
+        }
+    }
+
+    async void DestroyEnvironment(float timeDelay)
+    {
+        GameObject[] environmentObjects = GameObject.FindGameObjectsWithTag("Environment");
+
+        for(int i = 0; i < environmentObjects.Length; i++)
+        {
+            GameObject.Destroy(environmentObjects[i]);
+            await new WaitForSeconds(timeDelay);
         }
     }
 }
