@@ -5,16 +5,23 @@ using UnityEngine;
 public class EnemyTankView_VS : MonoBehaviour
 {
     EnemyTankController_VS EnemyTankController;
+    EnemyState_VS currentEnemyState = null;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartToWait();
+        //StartToWait();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveEnemyTankToRandomPosition();
+        //MoveEnemyTankToRandomPosition();
+
+        if(this.currentEnemyState != null)
+        {
+            currentEnemyState.Tick();
+        }
     }
 
     public void SetEnemyTankController(EnemyTankController_VS enemyTankController)
@@ -53,5 +60,17 @@ public class EnemyTankView_VS : MonoBehaviour
     public void TakeDamage(float damage)
     {
         EnemyTankController.TakeDamage(damage);
+    }
+
+    public void OnEnemyStateChanged(EnemyState_VS newEnemyState)
+    {
+        if(this.currentEnemyState != null)
+        {
+            this.currentEnemyState.OnExitState();
+            this.currentEnemyState = null;
+        }
+
+        this.currentEnemyState = newEnemyState;
+        this.currentEnemyState.OnEnterState();
     }
 }

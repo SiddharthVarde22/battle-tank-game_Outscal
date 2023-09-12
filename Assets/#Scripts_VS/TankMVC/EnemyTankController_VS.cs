@@ -11,12 +11,15 @@ public class EnemyTankController_VS
 
     Vector3 target = Vector3.zero;
 
+    EnemyStates_Enum currentEnemyState = EnemyStates_Enum.Idle;
+
     public EnemyTankController_VS(EnemyTankModel_VS enemyTankModel, EnemyTankView_VS enemyTankView)
     {
         this.EnemyTankModel = enemyTankModel;
         this.EnemyTankView = GameObject.Instantiate<EnemyTankView_VS>(enemyTankView);
         this.EnemyTankView.SetEnemyTankController(this);
         IsMoving = false;
+        ChangeEnemyState(currentEnemyState);
     }
 
     public void MoveTowardsTarget()
@@ -47,5 +50,29 @@ public class EnemyTankController_VS
         {
             GameObject.Destroy(EnemyTankView.gameObject);
         }
+    }
+
+    public void ChangeEnemyState(EnemyStates_Enum newEnemyState)
+    {
+        EnemyState_VS enemyState = null;
+
+        switch(newEnemyState)
+        {
+            case EnemyStates_Enum.Idle:
+                enemyState = new Idle_EnemyState(this, EnemyTankModel.EnemyTankScriptableObject.timeToStayInIdle);
+                break;
+            case EnemyStates_Enum.Petroling:
+                break;
+            case EnemyStates_Enum.Chase:
+                break;
+            case EnemyStates_Enum.Attack:
+                break;
+            default:
+                enemyState = new Idle_EnemyState(this, EnemyTankModel.EnemyTankScriptableObject.timeToStayInIdle);
+                break;
+        }
+
+        EnemyTankView.OnEnemyStateChanged(enemyState);
+        currentEnemyState = newEnemyState;
     }
 }
