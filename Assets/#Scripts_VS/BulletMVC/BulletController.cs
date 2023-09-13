@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class BulletController
 {
-    BulletModel BulletModel { get; }
-    BulletView BulletView { get; }
+    private BulletModel BulletModel { get; }
+    private BulletView BulletView { get; }
 
     public BulletController(BulletModel bulletModel, BulletView bulletView)
     {

@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class BulletView : MonoBehaviour
 {
-    BulletController BulletController;
+    private BulletController BulletController;
 
-    Rigidbody rigidbody;
+    private Rigidbody rigidbody;
 
     public void SetBulletController(BulletController bulletController)
     {

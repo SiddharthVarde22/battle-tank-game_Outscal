@@ -1,21 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTankView : MonoBehaviour
 {
-    EnemyTankController EnemyTankController;
-    EnemyState currentEnemyState = null;
+    private EnemyTankController EnemyTankController;
+    private EnemyState currentEnemyState = null;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //StartToWait();
         WorldRefrenceHolder.Instance.allEnemyTanks.Add(this);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //MoveEnemyTankToRandomPosition();
 
@@ -38,7 +37,7 @@ public class EnemyTankView : MonoBehaviour
         }
     }
 
-    void SetRandomTargetForEnemyTank()
+    private void SetRandomTargetForEnemyTank()
     {
         Vector3 target;
         target.x = Random.Range(-40f, 40f);
@@ -52,7 +51,7 @@ public class EnemyTankView : MonoBehaviour
         StartCoroutine(WaitForFewSeconds(Random.Range(3, 10)));
     }
 
-    IEnumerator WaitForFewSeconds(int timeToWait)
+    private IEnumerator WaitForFewSeconds(int timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);
         SetRandomTargetForEnemyTank();

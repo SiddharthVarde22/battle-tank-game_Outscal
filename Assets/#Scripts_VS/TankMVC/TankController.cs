@@ -40,13 +40,13 @@ public class TankController
         }
     }
 
-    void DestroyEverything()
+    private void DestroyEverything()
     {
         DestroyTanks(0.1f);
         DestroyEnvironment(0.1f);
     }
 
-    async void DestroyTanks(float timeDelay)
+    private async void DestroyTanks(float timeDelay)
     {
         List<EnemyTankView> tanks = WorldRefrenceHolder.Instance.allEnemyTanks;
         for (int i = 0; i < tanks.Count; i++)
@@ -57,7 +57,7 @@ public class TankController
         WorldRefrenceHolder.Instance.allEnemyTanks.Clear();
     }
 
-    async void DestroyEnvironment(float timeDelay)
+    private async void DestroyEnvironment(float timeDelay)
     {
         Transform environmentObjects = WorldRefrenceHolder.Instance.EnvironmentParent;
         int childCount = environmentObjects.childCount;

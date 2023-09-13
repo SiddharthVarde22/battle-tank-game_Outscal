@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class EnemyTankController
 {
-    EnemyTankModel EnemyTankModel;
-    EnemyTankView EnemyTankView;
+    private EnemyTankModel EnemyTankModel;
+    private EnemyTankView EnemyTankView;
 
     public bool IsMoving { get; private set; }
 
-    Vector3 target = Vector3.zero;
+    private Vector3 target = Vector3.zero;
 
-    EnemyStates_Enum currentEnemyState = EnemyStates_Enum.Idle;
+    private EnemyStates_Enum currentEnemyState = EnemyStates_Enum.Idle;
 
     public EnemyTankController(EnemyTankModel enemyTankModel, EnemyTankView enemyTankView)
     {

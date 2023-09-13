@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class EnemyTankSpawnerService : MonoBehaviour
 {
     [SerializeField]
-    EnemyTankScriptableObjectsList EnemyTankScriptableObjectsList;
+    private EnemyTankScriptableObjectsList EnemyTankScriptableObjectsList;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         SpawnAnRandomenemyTank();
     }
 
-    void SpawnAnRandomenemyTank()
+    private void SpawnAnRandomenemyTank()
     {
         int random = Random.Range(0, EnemyTankScriptableObjectsList.EnemyTankList.Length);
 

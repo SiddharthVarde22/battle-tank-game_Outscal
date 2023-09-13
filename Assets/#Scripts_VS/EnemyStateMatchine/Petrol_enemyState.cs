@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Petrol_enemyState : EnemyState
 {
-    Transform player, myTransform;
-    Vector3 targetPosition;
-    float levelXlength, levelZLength;
-    float distanceFromPlayerToShoot;
+    private Transform player, myTransform;
+    private Vector3 targetPosition;
+    private float levelXlength, levelZLength;
+    private float distanceFromPlayerToShoot;
 
     public Petrol_enemyState(EnemyTankController enemyTankController, Transform player, 
         float Xlength, float Zlength):base(enemyTankController)
@@ -37,14 +36,14 @@ public class Petrol_enemyState : EnemyState
         //if close to player go to chase
     }
 
-    void GetRandomPosition()
+    private void GetRandomPosition()
     {
         targetPosition.x = Random.Range(-levelXlength, levelXlength);
         targetPosition.y = 0;
         targetPosition.z = Random.Range(-levelZLength, levelZLength);
     }
 
-    float CalculateDistanceFromTarget()
+    private float CalculateDistanceFromTarget()
     {
         return Vector3.Distance(targetPosition, myTransform.position);
     }

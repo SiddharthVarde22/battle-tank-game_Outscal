@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class TankSpawnerService : MonoBehaviour
@@ -7,15 +6,15 @@ public class TankSpawnerService : MonoBehaviour
     //[SerializeField]
     //TankView_VS tankPrefab;
     [SerializeField]
-    TanksListScriptableObject tanksList;
+    private TanksListScriptableObject tanksList;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         SpawnARandomPlayerTank();
     }
 
-    void SpawnARandomPlayerTank()
+    private void SpawnARandomPlayerTank()
     {
         int randomNumber = Random.Range(0, tanksList.tankScriptableObjectsList.Length);
 

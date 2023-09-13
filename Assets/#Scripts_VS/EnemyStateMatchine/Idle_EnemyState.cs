@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Idle_EnemyState : EnemyState
 {
-    float TimeToWait;
-    float currentTime;
+    private float TimeToWait;
+    private float currentTime;
     public Idle_EnemyState(EnemyTankController enemyTankController, float timeToWait) : base(enemyTankController)
     {
         this.TimeToWait = timeToWait;
