@@ -6,7 +6,7 @@ public class Petrol_EnemyState : EnemyState
     private Transform player;
     private Vector3 targetPosition;
     [SerializeField]
-    private float levelXlength, levelZLength, minimumDistanceToChasePlayer;
+    private float levelXlength = 40, levelZLength = 40, minimumDistanceToChasePlayer = 5;
 
     private float moveSpeed;
     public override void OnEnterState(EnemyTankController enemyTankController)
@@ -23,11 +23,6 @@ public class Petrol_EnemyState : EnemyState
 
     private void Update()
     {
-        if (CalculateDistanceFromTarget() <= 0.2f)
-        {
-            EnemyTankController.ChangeEnemyState(EnemyStates_Enum.Idle);
-        }
-
         //rotate towards target
         transform.LookAt(targetPosition);
         //move towards target
@@ -37,6 +32,12 @@ public class Petrol_EnemyState : EnemyState
         if (CalculateDistanceFromPlayer() <= minimumDistanceToChasePlayer)
         {
             //switch to Chase state
+            EnemyTankController.ChangeEnemyState(EnemyStates_Enum.Chase);
+        }
+
+        if (CalculateDistanceFromTarget() <= 0.2f)
+        {
+            EnemyTankController.ChangeEnemyState(EnemyStates_Enum.Idle);
         }
     }
 

@@ -8,6 +8,8 @@ public class EnemyTankView : MonoBehaviour
 
     private Idle_EnemyState idle_EnemyState;
     private Petrol_EnemyState petrol_EnemyState;
+    private Chase_EnemyState chase_EnemyState;
+    private Attack_EnemyState attack_EnemyState;
 
     // Start is called before the first frame update
     private void Start()
@@ -16,6 +18,8 @@ public class EnemyTankView : MonoBehaviour
         WorldRefrenceHolder.Instance.allEnemyTanks.Add(this);
         idle_EnemyState = GetComponent<Idle_EnemyState>();
         petrol_EnemyState = GetComponent<Petrol_EnemyState>();
+        chase_EnemyState = GetComponent<Chase_EnemyState>();
+        attack_EnemyState = GetComponent<Attack_EnemyState>();
 
         ChangeEnemyState(EnemyStates_Enum.Idle);
     }
@@ -24,34 +28,6 @@ public class EnemyTankView : MonoBehaviour
     {
         this.EnemyTankController = enemyTankController;
     }
-
-    //public void MoveEnemyTankToRandomPosition()
-    //{
-    //    if (EnemyTankController.IsMoving)
-    //    {
-    //        EnemyTankController.MoveTowardsTarget();
-    //    }
-    //}
-
-    //private void SetRandomTargetForEnemyTank()
-    //{
-    //    Vector3 target;
-    //    target.x = Random.Range(-40f, 40f);
-    //    target.y = 0;
-    //    target.z = Random.Range(-40f, 40f);
-    //    EnemyTankController.SetTarget(target);
-    //}
-
-    //public void StartToWait()
-    //{
-    //    StartCoroutine(WaitForFewSeconds(Random.Range(3, 10)));
-    //}
-
-    //private IEnumerator WaitForFewSeconds(int timeToWait)
-    //{
-    //    yield return new WaitForSeconds(timeToWait);
-    //    SetRandomTargetForEnemyTank();
-    //}
 
     public void TakeDamage(float damage)
     {
@@ -69,8 +45,10 @@ public class EnemyTankView : MonoBehaviour
                 OnEnemyStateChanged(petrol_EnemyState);
                 break;
             case EnemyStates_Enum.Chase:
+                OnEnemyStateChanged(chase_EnemyState);
                 break;
             case EnemyStates_Enum.Attack:
+                OnEnemyStateChanged(attack_EnemyState);
                 break;
         }
     }

@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 1840949759297395474}
   - component: {fileID: 6479215630215260603}
   - component: {fileID: 3173641914118495178}
+  - component: {fileID: -7183330371320614096}
+  - component: {fileID: -7515251031916015847}
   m_Layer: 0
   m_Name: EnemyTank1
   m_TagString: Tank
@@ -118,6 +120,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2232340228124943982}
+  - {fileID: 8469818313303187450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,7 +176,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelXlength: 40
   levelZLength: 40
-  minimumDistanceToChasePlayer: 5
+  minimumDistanceToChasePlayer: 10
+--- !u!114 &-7183330371320614096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232340228124982146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cabd8c10920e6459b4be41f676bf9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToNeededToShootPlayer: 7
+  distanceNeededToGoBackToPetrol: 12
+--- !u!114 &-7515251031916015847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232340228124982146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fdbe78d68c62c41b03a4b54b94797b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootRate: 15
+  distanceToStartChasing: 10
+  shootPointTransform: {fileID: 8469818313303187450}
 --- !u!1 &2232340228124982148
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,4 +492,35 @@ Transform:
   - {fileID: 2232340228124943978}
   m_Father: {fileID: 2232340228124943970}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8931504165074177358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8469818313303187450}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8469818313303187450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931504165074177358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.49, z: 1.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2232340228124943970}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

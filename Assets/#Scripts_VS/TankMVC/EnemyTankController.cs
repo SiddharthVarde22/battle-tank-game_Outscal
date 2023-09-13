@@ -18,26 +18,6 @@ public class EnemyTankController
         IsMoving = false;
     }
 
-    //public void MoveTowardsTarget()
-    //{
-    //    EnemyTankView.transform.position += 
-    //        EnemyTankModel.EnemyTankScriptableObject.MovementSpeed * Time.deltaTime * EnemyTankView.transform.forward;
-
-    //    EnemyTankView.transform.LookAt(target);
-
-    //    if((EnemyTankView.transform.position - target).magnitude <= 0.5f)
-    //    {
-    //        IsMoving = false;
-    //        EnemyTankView.StartToWait();
-    //    }
-    //}
-
-    //public void SetTarget(Vector3 target)
-    //{
-    //    this.target = target;
-    //    IsMoving = true;
-    //}
-
     public void TakeDamage(float damage)
     {
         EnemyTankModel.TakeDamage(damage);
@@ -56,5 +36,10 @@ public class EnemyTankController
     public float GetMovementSpeed()
     {
         return EnemyTankModel.EnemyTankScriptableObject.MovementSpeed;
+    }
+
+    public void Shoot(Transform shootPoint)
+    {
+        BulletSpawnService.Instance.SpawnBullet(EnemyTankModel.EnemyTankScriptableObject.Damage,shootPoint.position, shootPoint.rotation);
     }
 }
