@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTankView_VS : MonoBehaviour
+public class EnemyTankView : MonoBehaviour
 {
-    EnemyTankController_VS EnemyTankController;
-    EnemyState_VS currentEnemyState = null;
+    EnemyTankController EnemyTankController;
+    EnemyState currentEnemyState = null;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class EnemyTankView_VS : MonoBehaviour
         }
     }
 
-    public void SetEnemyTankController(EnemyTankController_VS enemyTankController)
+    public void SetEnemyTankController(EnemyTankController enemyTankController)
     {
         this.EnemyTankController = enemyTankController;
     }
@@ -62,7 +62,7 @@ public class EnemyTankView_VS : MonoBehaviour
         EnemyTankController.TakeDamage(damage);
     }
 
-    public void OnEnemyStateChanged(EnemyState_VS newEnemyState)
+    public void OnEnemyStateChanged(EnemyState newEnemyState)
     {
         if(this.currentEnemyState != null)
         {

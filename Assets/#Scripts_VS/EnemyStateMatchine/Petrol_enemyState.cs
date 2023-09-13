@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Petrol_enemyState : EnemyState_VS
+public class Petrol_enemyState : EnemyState
 {
     Transform player, myTransform;
     Vector3 targetPosition;
     float levelXlength, levelZLength;
     float distanceFromPlayerToShoot;
 
-    public Petrol_enemyState(EnemyTankController_VS enemyTankController, Transform player, 
+    public Petrol_enemyState(EnemyTankController enemyTankController, Transform player, 
         float Xlength, float Zlength):base(enemyTankController)
     {
         this.player = player;

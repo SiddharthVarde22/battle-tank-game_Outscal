@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankView_VS : MonoBehaviour
+public class TankView : MonoBehaviour
 {
-    public TankController_VS tankController;
+    public TankController tankController;
 
     float horizontalInput, verticalInput;
 
@@ -23,15 +23,13 @@ public class TankView_VS : MonoBehaviour
         TakeUserInput();
         TakeFireInput();
 
-        //Just for testing
         if(Input.GetKeyDown(KeyCode.Alpha0))
         {
-            //Debug.Log("Taking damage");
             TakeDamage(50);
         }
     }
 
-    public void SetTankController(TankController_VS tankController)
+    public void SetTankController(TankController tankController)
     {
         this.tankController = tankController;
     }

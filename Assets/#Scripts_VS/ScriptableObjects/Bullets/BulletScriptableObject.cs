@@ -6,5 +6,5 @@ using UnityEngine;
 public class BulletScriptableObject : ScriptableObject
 {
     public float InitialForce;
-    public BulletView_VS BulletView;
+    public BulletView BulletView;
 }

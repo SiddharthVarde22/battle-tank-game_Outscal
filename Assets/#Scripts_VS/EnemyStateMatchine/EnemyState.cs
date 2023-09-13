@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyState_VS
+public abstract class EnemyState
 {
-    protected EnemyTankController_VS EnemyTankController;
-    public EnemyState_VS(EnemyTankController_VS enemyTankController)
+    protected EnemyTankController EnemyTankController;
+    public EnemyState(EnemyTankController enemyTankController)
     {
         this.EnemyTankController = enemyTankController;
     }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
-public class BulletView_VS : MonoBehaviour
+public class BulletView : MonoBehaviour
 {
-    BulletController_VS BulletController;
+    BulletController BulletController;
 
     Rigidbody rigidbody;
 
-    public void SetBulletController(BulletController_VS bulletController)
+    public void SetBulletController(BulletController bulletController)
     {
         this.BulletController = bulletController;
     }

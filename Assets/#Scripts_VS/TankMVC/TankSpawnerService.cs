@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankSpawnerService_VS : MonoBehaviour
+public class TankSpawnerService : MonoBehaviour
 {
     //[SerializeField]
     //TankView_VS tankPrefab;
@@ -19,8 +19,8 @@ public class TankSpawnerService_VS : MonoBehaviour
     {
         int randomNumber = Random.Range(0, tanksList.tankScriptableObjectsList.Length);
 
-        TankModel_VS tankModel = new TankModel_VS(tanksList.tankScriptableObjectsList[randomNumber]);
+        TankModel tankModel = new TankModel(tanksList.tankScriptableObjectsList[randomNumber]);
 
-        TankController_VS tankController = new TankController_VS(tankModel, tanksList.tankScriptableObjectsList[randomNumber].TankView);
+        TankController tankController = new TankController(tankModel, tanksList.tankScriptableObjectsList[randomNumber].TankView);
     }
 }

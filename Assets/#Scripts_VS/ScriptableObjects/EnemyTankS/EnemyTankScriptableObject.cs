@@ -10,6 +10,6 @@ public class EnemyTankScriptableObject : ScriptableObject
     public float RotationSpeed;
     public int Health;
     public float Damage;
-    public EnemyTankView_VS EnemyTankView;
+    public EnemyTankView EnemyTankView;
     public float timeToStayInIdle;
 }

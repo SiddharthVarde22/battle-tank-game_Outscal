@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController_VS
+public class BulletController
 {
-    BulletModel_VS BulletModel { get; }
-    BulletView_VS BulletView { get; }
+    BulletModel BulletModel { get; }
+    BulletView BulletView { get; }
 
-    public BulletController_VS(BulletModel_VS bulletModel, BulletView_VS bulletView)
+    public BulletController(BulletModel bulletModel, BulletView bulletView)
     {
         this.BulletModel = bulletModel;
-        this.BulletView = GameObject.Instantiate<BulletView_VS>(bulletView);
+        this.BulletView = GameObject.Instantiate<BulletView>(bulletView);
         this.BulletView.SetBulletController(this);
         SetPositionAndRotaion(bulletModel.StartPosition, bulletModel.StartRotation);
         ShootTheBullet();
@@ -29,17 +29,15 @@ public class BulletController_VS
 
     public void OnCollidedWithSomething(Collision collision)
     {
-        TankView_VS playerTank;
-        EnemyTankView_VS enemytank;
+        TankView playerTank;
+        EnemyTankView enemytank;
 
-        if(collision.transform.TryGetComponent<TankView_VS>(out playerTank))
+        if(collision.transform.TryGetComponent<TankView>(out playerTank))
         {
-            Debug.Log("Collided with player");
             playerTank.TakeDamage(BulletModel.Damage);
         }
-        else if(collision.transform.TryGetComponent<EnemyTankView_VS>(out enemytank))
+        else if(collision.transform.TryGetComponent<EnemyTankView>(out enemytank))
         {
-            Debug.Log("collided with Enemy Tank");
             enemytank.TakeDamage(BulletModel.Damage);
         }
 

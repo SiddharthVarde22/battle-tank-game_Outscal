@@ -17,9 +17,9 @@ public class EnemyTankSpawnerService : MonoBehaviour
     {
         int random = Random.Range(0, EnemyTankScriptableObjectsList.EnemyTankList.Length);
 
-        EnemyTankModel_VS enemyTankModel = new EnemyTankModel_VS(EnemyTankScriptableObjectsList.EnemyTankList[random]);
+        EnemyTankModel enemyTankModel = new EnemyTankModel(EnemyTankScriptableObjectsList.EnemyTankList[random]);
 
-        EnemyTankController_VS enemyTankController = 
-            new EnemyTankController_VS(enemyTankModel, EnemyTankScriptableObjectsList.EnemyTankList[random].EnemyTankView);
+        EnemyTankController enemyTankController = 
+            new EnemyTankController(enemyTankModel, EnemyTankScriptableObjectsList.EnemyTankList[random].EnemyTankView);
     }
 }

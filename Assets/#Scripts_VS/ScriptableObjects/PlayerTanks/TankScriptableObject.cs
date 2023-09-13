@@ -18,5 +18,5 @@ public class TankScriptableObject : ScriptableObject
     public float RotationSpeed;
     public int Health;
     public float Damage;
-    public TankView_VS TankView;
+    public TankView TankView;
 }

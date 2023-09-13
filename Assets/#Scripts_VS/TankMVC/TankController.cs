@@ -1,14 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TankController_VS
+public class TankController
 {
-    public TankView_VS TankView { get; }
-    public TankModel_VS TankModel { get; }
+    public TankView TankView { get; }
+    public TankModel TankModel { get; }
 
-    public TankController_VS(TankModel_VS tankModel, TankView_VS tankPrefab)
+    public TankController(TankModel tankModel, TankView tankPrefab)
     {
         TankModel = tankModel;
-        TankView = GameObject.Instantiate<TankView_VS>(tankPrefab);
+        TankView = GameObject.Instantiate<TankView>(tankPrefab);
         TankView.SetTankController(this);
     }
 
@@ -47,12 +48,13 @@ public class TankController_VS
 
     async void DestroyTanks(float timeDelay)
     {
-        GameObject[] tanks = GameObject.FindGameObjectsWithTag("Tank");
-        for (int i = 0; i < tanks.Length; i++)
+        List<EnemyTankView> tanks = WorldRefrenceHolder.Instance.allEnemyTanks;
+        for (int i = 0; i < tanks.Count; i++)
         {
-            GameObject.Destroy(tanks[i]);
+            GameObject.Destroy(tanks[i].gameObject);
             await new WaitForSeconds(timeDelay);
         }
+        WorldRefrenceHolder.Instance.allEnemyTanks.Clear();
     }
 
     async void DestroyEnvironment(float timeDelay)

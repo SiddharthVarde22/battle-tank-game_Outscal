@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTankController_VS
+public class EnemyTankController
 {
-    EnemyTankModel_VS EnemyTankModel;
-    EnemyTankView_VS EnemyTankView;
+    EnemyTankModel EnemyTankModel;
+    EnemyTankView EnemyTankView;
 
     public bool IsMoving { get; private set; }
 
@@ -13,10 +13,10 @@ public class EnemyTankController_VS
 
     EnemyStates_Enum currentEnemyState = EnemyStates_Enum.Idle;
 
-    public EnemyTankController_VS(EnemyTankModel_VS enemyTankModel, EnemyTankView_VS enemyTankView)
+    public EnemyTankController(EnemyTankModel enemyTankModel, EnemyTankView enemyTankView)
     {
         this.EnemyTankModel = enemyTankModel;
-        this.EnemyTankView = GameObject.Instantiate<EnemyTankView_VS>(enemyTankView);
+        this.EnemyTankView = GameObject.Instantiate<EnemyTankView>(enemyTankView);
         this.EnemyTankView.SetEnemyTankController(this);
         IsMoving = false;
         ChangeEnemyState(currentEnemyState);
@@ -54,7 +54,7 @@ public class EnemyTankController_VS
 
     public void ChangeEnemyState(EnemyStates_Enum newEnemyState)
     {
-        EnemyState_VS enemyState = null;
+        EnemyState enemyState = null;
 
         switch(newEnemyState)
         {

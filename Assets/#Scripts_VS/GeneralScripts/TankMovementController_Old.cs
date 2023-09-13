@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankMovementController_VS : MonoBehaviour
+public class TankMovementController_Old : MonoBehaviour
 {
     [SerializeField]
     Joystick joystickController;
