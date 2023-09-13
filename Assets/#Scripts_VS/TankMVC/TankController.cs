@@ -59,11 +59,11 @@ public class TankController
 
     async void DestroyEnvironment(float timeDelay)
     {
-        GameObject[] environmentObjects = GameObject.FindGameObjectsWithTag("Environment");
-
-        for(int i = 0; i < environmentObjects.Length; i++)
+        Transform environmentObjects = WorldRefrenceHolder.Instance.EnvironmentParent;
+        int childCount = environmentObjects.childCount;
+        for(int i = childCount; i > 0; i--)
         {
-            GameObject.Destroy(environmentObjects[i]);
+            GameObject.Destroy(environmentObjects.GetChild(i - 1).gameObject);
             await new WaitForSeconds(timeDelay);
         }
     }

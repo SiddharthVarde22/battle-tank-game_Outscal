@@ -23,8 +23,7 @@ public class BulletController
 
     public void SetPositionAndRotaion(Vector3 position, Quaternion rotation)
     {
-        BulletView.transform.position = position;
-        BulletView.transform.rotation = rotation;
+        BulletView.transform.SetPositionAndRotation(position, rotation);
     }
 
     public void OnCollidedWithSomething(Collision collision)

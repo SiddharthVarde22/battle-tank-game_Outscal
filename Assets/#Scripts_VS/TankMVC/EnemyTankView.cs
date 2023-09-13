@@ -11,6 +11,7 @@ public class EnemyTankView : MonoBehaviour
     void Start()
     {
         //StartToWait();
+        WorldRefrenceHolder.Instance.allEnemyTanks.Add(this);
     }
 
     // Update is called once per frame
