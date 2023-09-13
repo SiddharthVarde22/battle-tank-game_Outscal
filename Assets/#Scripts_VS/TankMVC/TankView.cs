@@ -1,58 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class TankView_VS : MonoBehaviour
+public class TankView : MonoBehaviour
 {
-    public TankController_VS tankController;
+    public TankController tankController;
 
-    float horizontalInput, verticalInput;
+    private float horizontalInput, verticalInput;
 
     [SerializeField]
-    Transform bulletSpawnPoint;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Debug.Log("Tank view Start");
-    }
+    private Transform bulletSpawnPoint;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         TakeUserInput();
         TakeFireInput();
-
-        //Just for testing
-        if(Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            //Debug.Log("Taking damage");
-            TakeDamage(50);
-        }
     }
 
-    public void SetTankController(TankController_VS tankController)
+    public void SetTankController(TankController tankController)
     {
         this.tankController = tankController;
     }
 
-    void TakeUserInput()
+    private void TakeUserInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
         if(horizontalInput != 0)
         {
+            // A/D or RightArrow/LeftArrow to rotate
             CallPlayerRotate();
         }
 
         if(verticalInput != 0)
         {
+            // W/S or UpArrow/DownArrow to move
             CallPlayerMove();
         }
     }
 
-    void TakeFireInput()
+    private void TakeFireInput()
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
@@ -60,17 +48,17 @@ public class TankView_VS : MonoBehaviour
         }
     }
 
-    void OnShootPressed()
+    private void OnShootPressed()
     {
         tankController.PlayerTankShoot(bulletSpawnPoint.position, bulletSpawnPoint.rotation);
     }
 
-    void CallPlayerMove()
+    private void CallPlayerMove()
     {
         tankController.PlayerMove(verticalInput);
     }
 
-    void CallPlayerRotate()
+    private void CallPlayerRotate()
     {
         tankController.PlayerRotate(horizontalInput);
     }

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2232340228124982146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a3539cf53acdd46843df4f992bbb8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 30aa663f839fc3e41b27bee0a99c88ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 9163088401666508765}

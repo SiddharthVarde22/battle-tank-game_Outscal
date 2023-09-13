@@ -19,3 +19,4 @@ MonoBehaviour:
   Damage: 20
   EnemyTankView: {fileID: 7495558122696754727, guid: f8b8cc97f9138084e92afe21d434bf2e,
     type: 3}
+  timeToStayInIdle: 5

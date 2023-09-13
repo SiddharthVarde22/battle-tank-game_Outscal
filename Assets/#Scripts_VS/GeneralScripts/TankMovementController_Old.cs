@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class TankMovementController_VS : MonoBehaviour
+public class TankMovementController_Old : MonoBehaviour
 {
     [SerializeField]
-    Joystick joystickController;
+    private Joystick joystickController;
     [SerializeField]
-    float tankMoveSpeed = 10;
+    private float tankMoveSpeed = 10;
 
     //To convert 2d Input in 3D.
     Vector3 inputDirection = Vector3.zero;
@@ -17,7 +16,7 @@ public class TankMovementController_VS : MonoBehaviour
         MoveTank();
     }
 
-    void MoveTank()
+    private void MoveTank()
     {
         //inputDirection.x = joystickController.Direction.x;
         //inputDirection.y = 0;
