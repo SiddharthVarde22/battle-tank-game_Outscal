@@ -11,6 +11,7 @@ public class TankController
         TankModel = tankModel;
         TankView = GameObject.Instantiate<TankView>(tankPrefab);
         TankView.SetTankController(this);
+        WorldRefrenceHolder.Instance.playerTank = TankView;
     }
 
     public void PlayerMove(float verticalInput)

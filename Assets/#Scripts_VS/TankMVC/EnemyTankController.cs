@@ -8,9 +8,7 @@ public class EnemyTankController
 
     public bool IsMoving { get; private set; }
 
-    private Vector3 target = Vector3.zero;
-
-    private EnemyStates_Enum currentEnemyState = EnemyStates_Enum.Idle;
+    //private Vector3 target = Vector3.zero;
 
     public EnemyTankController(EnemyTankModel enemyTankModel, EnemyTankView enemyTankView)
     {
@@ -18,28 +16,27 @@ public class EnemyTankController
         this.EnemyTankView = GameObject.Instantiate<EnemyTankView>(enemyTankView);
         this.EnemyTankView.SetEnemyTankController(this);
         IsMoving = false;
-        ChangeEnemyState(currentEnemyState);
     }
 
-    public void MoveTowardsTarget()
-    {
-        EnemyTankView.transform.position += 
-            EnemyTankModel.EnemyTankScriptableObject.MovementSpeed * Time.deltaTime * EnemyTankView.transform.forward;
+    //public void MoveTowardsTarget()
+    //{
+    //    EnemyTankView.transform.position += 
+    //        EnemyTankModel.EnemyTankScriptableObject.MovementSpeed * Time.deltaTime * EnemyTankView.transform.forward;
 
-        EnemyTankView.transform.LookAt(target);
+    //    EnemyTankView.transform.LookAt(target);
 
-        if((EnemyTankView.transform.position - target).magnitude <= 0.5f)
-        {
-            IsMoving = false;
-            EnemyTankView.StartToWait();
-        }
-    }
+    //    if((EnemyTankView.transform.position - target).magnitude <= 0.5f)
+    //    {
+    //        IsMoving = false;
+    //        EnemyTankView.StartToWait();
+    //    }
+    //}
 
-    public void SetTarget(Vector3 target)
-    {
-        this.target = target;
-        IsMoving = true;
-    }
+    //public void SetTarget(Vector3 target)
+    //{
+    //    this.target = target;
+    //    IsMoving = true;
+    //}
 
     public void TakeDamage(float damage)
     {
@@ -51,27 +48,13 @@ public class EnemyTankController
         }
     }
 
-    public void ChangeEnemyState(EnemyStates_Enum newEnemyState)
+    public void ChangeEnemyState(EnemyStates_Enum newEnemyState_Enum)
     {
-        EnemyState enemyState = null;
+        EnemyTankView.ChangeEnemyState(newEnemyState_Enum);
+    }
 
-        switch(newEnemyState)
-        {
-            case EnemyStates_Enum.Idle:
-                enemyState = new Idle_EnemyState(this, EnemyTankModel.EnemyTankScriptableObject.timeToStayInIdle);
-                break;
-            case EnemyStates_Enum.Petroling:
-                break;
-            case EnemyStates_Enum.Chase:
-                break;
-            case EnemyStates_Enum.Attack:
-                break;
-            default:
-                enemyState = new Idle_EnemyState(this, EnemyTankModel.EnemyTankScriptableObject.timeToStayInIdle);
-                break;
-        }
-
-        EnemyTankView.OnEnemyStateChanged(enemyState);
-        currentEnemyState = newEnemyState;
+    public float GetMovementSpeed()
+    {
+        return EnemyTankModel.EnemyTankScriptableObject.MovementSpeed;
     }
 }

@@ -1,12 +1,15 @@
 
-public abstract class EnemyState
+using UnityEngine;
+public class EnemyState : MonoBehaviour
 {
     protected EnemyTankController EnemyTankController;
-    public EnemyState(EnemyTankController enemyTankController)
+    public virtual void OnEnterState(EnemyTankController enemyTankController)
     {
+        this.enabled = true;
         this.EnemyTankController = enemyTankController;
     }
-    public abstract void OnEnterState();
-    public abstract void OnExitState();
-    public abstract void Tick();
+    public virtual void OnExitState()
+    {
+        this.enabled = false;
+    }
 }

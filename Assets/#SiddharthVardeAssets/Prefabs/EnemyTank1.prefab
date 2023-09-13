@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 2232340228124943970}
   - component: {fileID: 7495558122696754727}
   - component: {fileID: 1840949759297395474}
+  - component: {fileID: 6479215630215260603}
+  - component: {fileID: 3173641914118495178}
   m_Layer: 0
   m_Name: EnemyTank1
   m_TagString: Tank
@@ -144,6 +146,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5908585, y: 1.9225692, z: 2.3402152}
   m_Center: {x: 0.0051829815, y: 0.9381173, z: -0.023107111}
+--- !u!114 &6479215630215260603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232340228124982146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa98c5dc91881f4b9631e79ffc566b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToWait: 5
+--- !u!114 &3173641914118495178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232340228124982146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497adff9b1dc6704599b2b085af54125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelXlength: 40
+  levelZLength: 40
+  minimumDistanceToChasePlayer: 5
 --- !u!1 &2232340228124982148
 GameObject:
   m_ObjectHideFlags: 0

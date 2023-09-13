@@ -3,21 +3,21 @@ using UnityEngine;
 
 public class Idle_EnemyState : EnemyState
 {
+    [SerializeField]
     private float TimeToWait;
+
     private float currentTime;
-    public Idle_EnemyState(EnemyTankController enemyTankController, float timeToWait) : base(enemyTankController)
+    public override void OnEnterState(EnemyTankController enemyTankController)
     {
-        this.TimeToWait = timeToWait;
+        base.OnEnterState(enemyTankController);
         currentTime = 0;
-    }
-    public override void OnEnterState()
-    {
     }
     public override void OnExitState()
     {
+        base.OnExitState();
     }
 
-    public override void Tick()
+    public void Update()
     {
         currentTime += Time.deltaTime;
 

@@ -1,39 +1,43 @@
 
 using UnityEngine;
 
-public class Petrol_enemyState : EnemyState
+public class Petrol_EnemyState : EnemyState
 {
-    private Transform player, myTransform;
+    private Transform player;
     private Vector3 targetPosition;
-    private float levelXlength, levelZLength;
-    private float distanceFromPlayerToShoot;
+    [SerializeField]
+    private float levelXlength, levelZLength, minimumDistanceToChasePlayer;
 
-    public Petrol_enemyState(EnemyTankController enemyTankController, Transform player, 
-        float Xlength, float Zlength):base(enemyTankController)
+    private float moveSpeed;
+    public override void OnEnterState(EnemyTankController enemyTankController)
     {
-        this.player = player;
-        this.levelXlength = Xlength;
-        this.levelZLength = Zlength;
-    }
-    public override void OnEnterState()
-    {
+        base.OnEnterState(enemyTankController);
         GetRandomPosition();
+        player = WorldRefrenceHolder.Instance.playerTank.transform;
+        moveSpeed = enemyTankController.GetMovementSpeed();
     }
     public override void OnExitState()
     {
-
+        base.OnExitState();
     }
-    public override void Tick()
+
+    private void Update()
     {
-        if(CalculateDistanceFromTarget() <= 0.2f)
+        if (CalculateDistanceFromTarget() <= 0.2f)
         {
             EnemyTankController.ChangeEnemyState(EnemyStates_Enum.Idle);
         }
 
         //rotate towards target
+        transform.LookAt(targetPosition);
         //move towards target
+        transform.position += moveSpeed * Time.deltaTime * transform.forward;
 
         //if close to player go to chase
+        if (CalculateDistanceFromPlayer() <= minimumDistanceToChasePlayer)
+        {
+            //switch to Chase state
+        }
     }
 
     private void GetRandomPosition()
@@ -45,6 +49,11 @@ public class Petrol_enemyState : EnemyState
 
     private float CalculateDistanceFromTarget()
     {
-        return Vector3.Distance(targetPosition, myTransform.position);
+        return Vector3.Distance(targetPosition, transform.position);
+    }
+
+    private float CalculateDistanceFromPlayer()
+    {
+        return Vector3.Distance(player.position, transform.position);
     }
 }
