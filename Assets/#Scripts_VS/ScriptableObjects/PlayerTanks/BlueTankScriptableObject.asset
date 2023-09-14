@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BlueTankScriptableObject
   m_EditorClassIdentifier: 
   TankType: 2
-  MovementSpeed: 10
-  RotationSpeed: 40
-  Health: 200
-  Damage: 10
+  MovementSpeed: 20
+  RotationSpeed: 50
+  Health: 100
+  Damage: 30
   TankView: {fileID: 2232340228125080724, guid: 570b340181a688741984c5867964f2e4,
     type: 3}

@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class BulletSpawnService : GenericSingleton_VS<BulletSpawnService>
+public class BulletSpawnService : GenericSingleton<BulletSpawnService>
 {
     [SerializeField]
-    BulletScriptableObject BulletScriptableObject;
+    private BulletScriptableObject BulletScriptableObject;
     public void SpawnBullet(float damage, Vector3 startPosition, Quaternion startRotation)
     {
-        BulletModel_VS bulletModel = new BulletModel_VS(BulletScriptableObject.InitialForce, damage, startPosition, startRotation);
-        BulletController_VS bulletController = new BulletController_VS(bulletModel, BulletScriptableObject.BulletView);
+        BulletModel bulletModel = new BulletModel(BulletScriptableObject.InitialForce, damage, startPosition, startRotation);
+        BulletController bulletController = new BulletController(bulletModel, BulletScriptableObject.BulletView);
     }
 }
