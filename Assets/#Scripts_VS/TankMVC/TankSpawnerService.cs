@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class TankSpawnerService : MonoBehaviour
 {
-    //[SerializeField]
-    //TankView_VS tankPrefab;
     [SerializeField]
     private TanksListScriptableObject tanksList;
 

@@ -14,7 +14,6 @@ public class EnemyTankView : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        //StartToWait();
         WorldRefrenceHolder.Instance.allEnemyTanks.Add(this);
         idle_EnemyState = GetComponent<Idle_EnemyState>();
         petrol_EnemyState = GetComponent<Petrol_EnemyState>();

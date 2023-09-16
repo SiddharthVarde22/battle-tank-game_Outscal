@@ -32,12 +32,10 @@ public class BulletController
 
         if(collision.transform.TryGetComponent<TankView>(out playerTank))
         {
-            Debug.Log("Player");
             playerTank.TakeDamage(BulletModel.Damage);
         }
         else if(collision.transform.TryGetComponent<EnemyTankView>(out enemytank))
         {
-            Debug.Log("Enemy");
             enemytank.TakeDamage(BulletModel.Damage);
         }
 

@@ -37,16 +37,22 @@ public class TankController
 
     public void OnBulletsShootEventTriggered(int numberOfbulletsShooted)
     {
+        //I will add apropiate functionalities later
+        // right now i have just created an observer system
         Debug.Log("Player shooted " + numberOfbulletsShooted + " bullets");
     }
 
     public void OnEnemiesKilledEventTriggered(int numberOfKilledEnemies)
     {
+        //I will add apropiate functionalities later
+        // right now i have just created an observer system
         Debug.Log("Player Killed " + numberOfKilledEnemies + " Enemies");
     }
 
     public void OnTimeSurvivedEventTriggered(int timeSurvived)
     {
+        //I will add apropiate functionalities later
+        // right now i have just created an observer system
         Debug.Log("Player Survived " + timeSurvived + " Seconds");
     }
 
