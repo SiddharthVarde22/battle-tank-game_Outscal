@@ -8,38 +8,60 @@ public class Achivement
     AchievementListScriptableObject achievementListScriptable;
     public int ValueToAchieve { get; private set; }
 
-    Action<int> achievementEvent;
+    Action<int> achievementEventCallback;
 
-    public Achivement(AchievementListScriptableObject achievementList, ref Action<int> achievementRefrence)
+    public Achivement(AchievementListScriptableObject achievementList, Action<int> achievementEventCallback)
     {
         currentValue = 0;
         indexOfValueToAchieve = 0;
         achievementListScriptable = achievementList;
         GetNewValueToAchieve();
-        achievementEvent = achievementRefrence;
+        this.achievementEventCallback = achievementEventCallback;
     }
 
-    public void IncreaseCurrentvalue()
+    public void IncreaseCurrentValue()
     {
-        if(indexOfValueToAchieve >= achievementListScriptable.acheivements.Count)
+        if(CheckIfOutOfBound())
         {
             return;
         }
         currentValue++;
 
-        if(currentValue >= ValueToAchieve)
+        CheckIfAchievementIsAchieved();
+    }
+
+    public void IncreaseCurrentValue(int valueToIncrease)
+    {
+        if(CheckIfOutOfBound())
         {
-            indexOfValueToAchieve++;
+            return;
         }
+        currentValue += valueToIncrease;
+        CheckIfAchievementIsAchieved();
     }
 
     public void GetNewValueToAchieve()
     {
-        if (indexOfValueToAchieve >= achievementListScriptable.acheivements.Count)
+        if (CheckIfOutOfBound())
         {
             return;
         }
 
         ValueToAchieve = achievementListScriptable.acheivements[indexOfValueToAchieve];
+    }
+
+    bool CheckIfOutOfBound()
+    {
+        return indexOfValueToAchieve >= achievementListScriptable.acheivements.Count;
+    }
+
+    void CheckIfAchievementIsAchieved()
+    {
+        if (currentValue >= ValueToAchieve)
+        {
+            achievementEventCallback?.Invoke(ValueToAchieve);
+            indexOfValueToAchieve++;
+            GetNewValueToAchieve();
+        }
     }
 }

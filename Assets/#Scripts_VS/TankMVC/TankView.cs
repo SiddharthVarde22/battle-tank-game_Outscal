@@ -10,11 +10,16 @@ public class TankView : MonoBehaviour
     [SerializeField]
     private Transform bulletSpawnPoint;
 
+    float currentSurvivedTime;
+    [SerializeField]
+    float timeDurationToUpdateSurvivedTime = 5;
+
     // Update is called once per frame
     private void Update()
     {
         TakeUserInput();
         TakeFireInput();
+        SendCalculatedTime();
     }
 
     public void SetTankController(TankController tankController)
@@ -66,5 +71,16 @@ public class TankView : MonoBehaviour
     public void TakeDamage(float damage)
     {
         tankController.TakeDamage(damage);
+    }
+
+    public void SendCalculatedTime()
+    {
+        currentSurvivedTime += Time.deltaTime;
+
+        if(currentSurvivedTime >= timeDurationToUpdateSurvivedTime)
+        {
+            AchievementService.Instance.OnCretainTimeSurvived((int)timeDurationToUpdateSurvivedTime);
+            currentSurvivedTime = 0;
+        }
     }
 }

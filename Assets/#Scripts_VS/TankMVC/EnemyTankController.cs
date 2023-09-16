@@ -42,4 +42,16 @@ public class EnemyTankController
     {
         BulletSpawnService.Instance.SpawnBullet(EnemyTankModel.EnemyTankScriptableObject.Damage,shootPoint.position, shootPoint.rotation);
     }
+
+    void OnEnemyGotKilled()
+    {
+        AchievementService.Instance.OnEnemyKilled();
+        EnemyTankSpawnerService.Instance.SpawnAnRandomenemyTank();
+    }
+
+    ~EnemyTankController()
+    {
+        Debug.Log("Enemy tank controller destructor");
+        OnEnemyGotKilled();
+    }
 }

@@ -464,6 +464,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &883659016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883659017}
+  - component: {fileID: 883659018}
+  m_Layer: 0
+  m_Name: AchievementService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883659017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883659016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.822554, y: 9.008477, z: 14.587211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &883659018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883659016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e984c412a9ec0149b4da62046d31b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsFiredAchievementScriptable: {fileID: 11400000, guid: 8b81a6df2701e1d46a5959e7c2de1133,
+    type: 2}
+  enemiesKilledAchievementScriptable: {fileID: 11400000, guid: fc8cb5eca98e7504e856c71ae624cf8c,
+    type: 2}
+  timeSurvivedAchievementScriptable: {fileID: 11400000, guid: 70910aaa85f1e294289f2a98a0d1b88e,
+    type: 2}
 --- !u!1 &1043517077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allEnemyTanks: []
   EnvironmentParent: {fileID: 0}
+  playerTank: {fileID: 0}
 --- !u!1001 &1718205135
 PrefabInstance:
   m_ObjectHideFlags: 0
