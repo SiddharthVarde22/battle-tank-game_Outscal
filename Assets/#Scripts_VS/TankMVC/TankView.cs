@@ -10,9 +10,9 @@ public class TankView : MonoBehaviour
     [SerializeField]
     private Transform bulletSpawnPoint;
 
-    float currentSurvivedTime;
+    private float currentSurvivedTime;
     [SerializeField]
-    float timeDurationToUpdateSurvivedTime = 5;
+    private float timeDurationToUpdateSurvivedTime = 5;
 
     // Update is called once per frame
     private void Update()

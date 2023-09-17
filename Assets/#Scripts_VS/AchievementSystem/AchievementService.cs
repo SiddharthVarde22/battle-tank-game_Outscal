@@ -5,7 +5,7 @@ using System;
 public class AchievementService : GenericSingleton<AchievementService>
 {
     [SerializeField]
-    AchievementListScriptableObject bulletsShootAchievementListScriptable,
+    private AchievementListScriptableObject bulletsShootAchievementListScriptable,
         enemiesKilledAchievementListScriptable,
         timeSurvivedAchievementListScriptable;
 
