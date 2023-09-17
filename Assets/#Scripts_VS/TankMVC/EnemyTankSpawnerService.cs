@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class EnemyTankSpawnerService : MonoBehaviour
+public class EnemyTankSpawnerService : GenericSingleton<EnemyTankSpawnerService>
 {
     [SerializeField]
     private EnemyTankScriptableObjectsList EnemyTankScriptableObjectsList;
@@ -12,7 +12,7 @@ public class EnemyTankSpawnerService : MonoBehaviour
         SpawnAnRandomenemyTank();
     }
 
-    private void SpawnAnRandomenemyTank()
+    public void SpawnAnRandomenemyTank()
     {
         int random = Random.Range(0, EnemyTankScriptableObjectsList.EnemyTankList.Length);
 

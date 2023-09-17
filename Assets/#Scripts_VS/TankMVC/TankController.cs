@@ -12,6 +12,10 @@ public class TankController
         TankView = GameObject.Instantiate<TankView>(tankPrefab);
         TankView.SetTankController(this);
         WorldRefrenceHolder.Instance.playerTank = TankView;
+
+        AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent += OnBulletsShootEventTriggered;
+        AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent += OnEnemiesKilledEventTriggered;
+        AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent += OnTimeSurvivedEventTriggered;
     }
 
     public void PlayerMove(float verticalInput)
@@ -29,6 +33,28 @@ public class TankController
     public void PlayerTankShoot(Vector3 startPosition, Quaternion startRotation)
     {
         BulletSpawnService.Instance.SpawnBullet(TankModel.tankScriptableData.Damage, startPosition, startRotation);
+        AchievementService.Instance.bulletsShootAchivement.OnActionPerformed();
+    }
+
+    public void OnBulletsShootEventTriggered(int numberOfbulletsShooted)
+    {
+        //I will add apropiate functionalities later
+        // right now i have just created an observer system
+        Debug.Log("Player shooted " + numberOfbulletsShooted + " bullets");
+    }
+
+    public void OnEnemiesKilledEventTriggered(int numberOfKilledEnemies)
+    {
+        //I will add apropiate functionalities later
+        // right now i have just created an observer system
+        Debug.Log("Player Killed " + numberOfKilledEnemies + " Enemies");
+    }
+
+    public void OnTimeSurvivedEventTriggered(int timeSurvived)
+    {
+        //I will add apropiate functionalities later
+        // right now i have just created an observer system
+        Debug.Log("Player Survived " + timeSurvived + " Seconds");
     }
 
     public void TakeDamage(float damage)
@@ -67,5 +93,12 @@ public class TankController
             GameObject.Destroy(environmentObjects.GetChild(i - 1).gameObject);
             await new WaitForSeconds(timeDelay);
         }
+    }
+
+    ~TankController()
+    {
+        AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent -= OnBulletsShootEventTriggered;
+        AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent -= OnEnemiesKilledEventTriggered;
+        AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent -= OnTimeSurvivedEventTriggered;
     }
 }
