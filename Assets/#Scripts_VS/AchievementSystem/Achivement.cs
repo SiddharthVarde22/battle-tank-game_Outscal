@@ -1,67 +1,64 @@
 using System;
 using UnityEngine;
 
-public class Achivement
+public abstract class Achivement
 {
-    public int currentValue { get; private set; }
-    public int indexOfValueToAchieve { get; private set; }
-    AchievementListScriptableObject achievementListScriptable;
-    public int ValueToAchieve { get; private set; }
+    protected int currentValue;
+    protected int valueToAchieve;
+    protected int indexOfValueToAchieve;
+    protected AchievementListScriptableObject achievementListScriptable;
 
-    Action<int> achievementEventCallback;
-
-    public Achivement(AchievementListScriptableObject achievementList, Action<int> achievementEventCallback)
+    public Achivement(AchievementListScriptableObject achievementList)
     {
+        achievementListScriptable = achievementList;
         currentValue = 0;
         indexOfValueToAchieve = 0;
-        achievementListScriptable = achievementList;
         GetNewValueToAchieve();
-        this.achievementEventCallback = achievementEventCallback;
     }
 
-    public void IncreaseCurrentValue()
+    public virtual void OnActionPerformed()
     {
-        if(CheckIfOutOfBound())
+        if (CheckIfAllAchievementsAreAchieved())
         {
             return;
         }
         currentValue++;
-
-        CheckIfAchievementIsAchieved();
+        if (CheckIfCurrentAchievementIsAchieved())
+        {
+            OnAchievementAchieved();
+        }
     }
 
-    public void IncreaseCurrentValue(int valueToIncrease)
+    public virtual void OnActionPerfomed(int value)
     {
-        if(CheckIfOutOfBound())
+        if (CheckIfAllAchievementsAreAchieved())
         {
             return;
         }
-        currentValue += valueToIncrease;
-        CheckIfAchievementIsAchieved();
+        currentValue += value;
+        if (CheckIfCurrentAchievementIsAchieved())
+        {
+            OnAchievementAchieved();
+        }
+    }
+    protected abstract void OnAchievementAchieved();
+
+    protected virtual bool CheckIfAllAchievementsAreAchieved()
+    {
+        return indexOfValueToAchieve >= this.achievementListScriptable.acheivements.Count;
     }
 
-    public void GetNewValueToAchieve()
+    protected virtual bool CheckIfCurrentAchievementIsAchieved()
     {
-        if (CheckIfOutOfBound())
+        return currentValue >= valueToAchieve;
+    }
+
+    protected virtual void GetNewValueToAchieve()
+    {
+        if (CheckIfAllAchievementsAreAchieved())
         {
             return;
         }
-
-        ValueToAchieve = achievementListScriptable.acheivements[indexOfValueToAchieve];
-    }
-
-    bool CheckIfOutOfBound()
-    {
-        return indexOfValueToAchieve >= achievementListScriptable.acheivements.Count;
-    }
-
-    void CheckIfAchievementIsAchieved()
-    {
-        if (currentValue >= ValueToAchieve)
-        {
-            achievementEventCallback?.Invoke(ValueToAchieve);
-            indexOfValueToAchieve++;
-            GetNewValueToAchieve();
-        }
+        valueToAchieve = achievementListScriptable.acheivements[indexOfValueToAchieve];
     }
 }

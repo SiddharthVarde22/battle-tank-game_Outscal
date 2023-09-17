@@ -12,9 +12,10 @@ public class TankController
         TankView = GameObject.Instantiate<TankView>(tankPrefab);
         TankView.SetTankController(this);
         WorldRefrenceHolder.Instance.playerTank = TankView;
-        AchievementService.Instance.BulletsFiredAchievementEvent += OnBulletsShootEventTriggered;
-        AchievementService.Instance.OnEnemiesKilledAchievementEvent += OnEnemiesKilledEventTriggered;
-        AchievementService.Instance.OnTimeSurvivedAchievementEvent += OnTimeSurvivedEventTriggered;
+
+        AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent += OnBulletsShootEventTriggered;
+        AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent += OnEnemiesKilledEventTriggered;
+        AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent += OnTimeSurvivedEventTriggered;
     }
 
     public void PlayerMove(float verticalInput)
@@ -32,7 +33,7 @@ public class TankController
     public void PlayerTankShoot(Vector3 startPosition, Quaternion startRotation)
     {
         BulletSpawnService.Instance.SpawnBullet(TankModel.tankScriptableData.Damage, startPosition, startRotation);
-        AchievementService.Instance.OnBulletFired();
+        AchievementService.Instance.bulletsShootAchivement.OnActionPerformed();
     }
 
     public void OnBulletsShootEventTriggered(int numberOfbulletsShooted)
@@ -96,8 +97,8 @@ public class TankController
 
     ~TankController()
     {
-        AchievementService.Instance.BulletsFiredAchievementEvent -= OnBulletsShootEventTriggered;
-        AchievementService.Instance.OnEnemiesKilledAchievementEvent -= OnEnemiesKilledEventTriggered;
-        AchievementService.Instance.OnTimeSurvivedAchievementEvent -= OnTimeSurvivedEventTriggered;
+        AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent -= OnBulletsShootEventTriggered;
+        AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent -= OnEnemiesKilledEventTriggered;
+        AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent -= OnTimeSurvivedEventTriggered;
     }
 }

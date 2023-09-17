@@ -44,7 +44,7 @@ public class EnemyTankController
 
     void OnEnemyGotKilled()
     {
-        AchievementService.Instance.OnEnemyKilled();
+        AchievementService.Instance.enemiesKilledAchievement.OnActionPerformed();
         EnemyTankSpawnerService.Instance.SpawnAnRandomenemyTank();
     }
 }

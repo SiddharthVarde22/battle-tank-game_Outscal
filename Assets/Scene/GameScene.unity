@@ -508,11 +508,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e984c412a9ec0149b4da62046d31b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsFiredAchievementScriptable: {fileID: 11400000, guid: 8b81a6df2701e1d46a5959e7c2de1133,
+  bulletsShootAchievementListScriptable: {fileID: 11400000, guid: 8b81a6df2701e1d46a5959e7c2de1133,
     type: 2}
-  enemiesKilledAchievementScriptable: {fileID: 11400000, guid: fc8cb5eca98e7504e856c71ae624cf8c,
+  enemiesKilledAchievementListScriptable: {fileID: 11400000, guid: fc8cb5eca98e7504e856c71ae624cf8c,
     type: 2}
-  timeSurvivedAchievementScriptable: {fileID: 11400000, guid: 70910aaa85f1e294289f2a98a0d1b88e,
+  timeSurvivedAchievementListScriptable: {fileID: 11400000, guid: 70910aaa85f1e294289f2a98a0d1b88e,
     type: 2}
 --- !u!1 &1043517077
 GameObject:

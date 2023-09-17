@@ -79,8 +79,8 @@ public class TankView : MonoBehaviour
 
         if(currentSurvivedTime >= timeDurationToUpdateSurvivedTime)
         {
-            AchievementService.Instance.OnCretainTimeSurvived((int)timeDurationToUpdateSurvivedTime);
-            currentSurvivedTime = 0;
+            AchievementService.Instance.timeSurvivedAchievement.OnActionPerfomed((int)timeDurationToUpdateSurvivedTime);
+            currentSurvivedTime -= timeDurationToUpdateSurvivedTime;
         }
     }
 }
