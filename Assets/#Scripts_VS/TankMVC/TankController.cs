@@ -63,7 +63,6 @@ public class TankController
         if(TankModel.Health <= 0)
         {
             DestroyEverything();
-            GameObject.Destroy(TankView.gameObject);
         }
     }
 
@@ -93,6 +92,7 @@ public class TankController
             GameObject.Destroy(environmentObjects.GetChild(i - 1).gameObject);
             await new WaitForSeconds(timeDelay);
         }
+        GameObject.Destroy(TankView.gameObject);
     }
 
     ~TankController()

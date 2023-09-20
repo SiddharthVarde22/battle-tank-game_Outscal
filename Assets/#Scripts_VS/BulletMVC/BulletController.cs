@@ -11,8 +11,6 @@ public class BulletController
         this.BulletModel = bulletModel;
         this.BulletView = GameObject.Instantiate<BulletView>(bulletView);
         this.BulletView.SetBulletController(this);
-        //SetPositionAndRotaion(bulletModel.StartPosition, bulletModel.StartRotation);
-        //ShootTheBullet();
     }
 
     public void ShootTheBullet()
@@ -39,7 +37,6 @@ public class BulletController
             enemytank.TakeDamage(BulletModel.Damage);
         }
 
-        //GameObject.Destroy(BulletView.gameObject);
         Disable();
     }
 

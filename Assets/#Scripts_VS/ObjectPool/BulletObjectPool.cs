@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletObjectPool : GenericObjectPool<BulletController>
 {
-    BulletModel bulletModel;
-    BulletView bulletView;
+    private BulletModel bulletModel;
+    private BulletView bulletView;
     public BulletController GetBullet(BulletModel bulletModel, BulletView bulletView)
     {
         this.bulletModel = bulletModel;

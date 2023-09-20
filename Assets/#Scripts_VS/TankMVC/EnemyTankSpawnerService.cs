@@ -6,7 +6,7 @@ public class EnemyTankSpawnerService : GenericSingleton<EnemyTankSpawnerService>
     [SerializeField]
     private EnemyTankScriptableObjectsList EnemyTankScriptableObjectsList;
     [SerializeField]
-    EnemyTankObjectPool enemyTankObjectPool;
+    private EnemyTankObjectPool enemyTankObjectPool;
 
     // Start is called before the first frame update
     private void Start()
@@ -22,9 +22,6 @@ public class EnemyTankSpawnerService : GenericSingleton<EnemyTankSpawnerService>
         int random = Random.Range(0, EnemyTankScriptableObjectsList.EnemyTankList.Length);
 
         EnemyTankModel enemyTankModel = new EnemyTankModel(EnemyTankScriptableObjectsList.EnemyTankList[random]);
-
-        //EnemyTankController enemyTankController = 
-        //  new EnemyTankController(enemyTankModel, EnemyTankScriptableObjectsList.EnemyTankList[random].EnemyTankView);
 
         EnemyTankController enemyTankController =
             enemyTankObjectPool.GetEnemyTank(enemyTankModel, EnemyTankScriptableObjectsList.EnemyTankList[random].EnemyTankView);

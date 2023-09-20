@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyTankObjectPool : GenericObjectPool<EnemyTankController>
 {
-    EnemyTankModel enemyTankModel;
-    EnemyTankView enemyTankView;
+    private EnemyTankModel enemyTankModel;
+    private EnemyTankView enemyTankView;
 
     public EnemyTankController GetEnemyTank(EnemyTankModel enemyTankModel, EnemyTankView enemyTankView)
     {

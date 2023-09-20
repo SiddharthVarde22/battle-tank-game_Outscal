@@ -12,7 +12,7 @@ public class EnemyTankView : MonoBehaviour
     private Attack_EnemyState attack_EnemyState;
 
     [SerializeField]
-    float maxXPosition = 20, minXPosition = -20, maxZPosition = 20, minZPosition = -20; 
+    private float maxXPosition = 20, minXPosition = -20, maxZPosition = 20, minZPosition = -20; 
 
     // Start is called before the first frame update
     private void Start()
@@ -51,7 +51,7 @@ public class EnemyTankView : MonoBehaviour
         }
     }
 
-    void OnEnemyStateChanged(EnemyState newEnemyState)
+    private void OnEnemyStateChanged(EnemyState newEnemyState)
     {
         if (this.currentEnemyState != null)
         {
@@ -62,11 +62,6 @@ public class EnemyTankView : MonoBehaviour
         this.currentEnemyState = newEnemyState;
         this.currentEnemyState.OnEnterState(EnemyTankController);
     }
-
-    //private void OnDestroy()
-    //{
-    //    WorldRefrenceHolder.Instance.allEnemyTanks.Remove(this);
-    //}
 
     public void Enable()
     {
@@ -81,7 +76,7 @@ public class EnemyTankView : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void FindRefrencesOfStates()
+    private void FindRefrencesOfStates()
     {
         idle_EnemyState = GetComponent<Idle_EnemyState>();
         petrol_EnemyState = GetComponent<Petrol_EnemyState>();
@@ -89,7 +84,7 @@ public class EnemyTankView : MonoBehaviour
         attack_EnemyState = GetComponent<Attack_EnemyState>();
     }
 
-    void ResetPositionAndRotation()
+    private void ResetPositionAndRotation()
     {
         transform.SetPositionAndRotation(new Vector3(Random.Range(minXPosition, maxXPosition), 0,
             Random.Range(minZPosition, maxZPosition)), Quaternion.identity);

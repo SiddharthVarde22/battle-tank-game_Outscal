@@ -9,7 +9,7 @@ public class GenericObjectPool<T> : GenericSingleton<GenericObjectPool<T>> where
         public bool isActive;
     }
 
-    List<PoolObject<T>> poolObjects = new List<PoolObject<T>>();
+    private List<PoolObject<T>> poolObjects = new List<PoolObject<T>>();
     protected virtual T GetPooledObject()
     {
         if(poolObjects.Count > 0)
