@@ -22,8 +22,9 @@ public class EnemyTankController
 
         if(EnemyTankModel.Health <= 0)
         {
-            OnEnemyGotKilled();
-            GameObject.Destroy(EnemyTankView.gameObject);
+            //OnEnemyGotKilled();
+            //GameObject.Destroy(EnemyTankView.gameObject);
+            Disable();
         }
     }
 
@@ -46,5 +47,21 @@ public class EnemyTankController
     {
         AchievementService.Instance.enemiesKilledAchievement.OnActionPerformed();
         EnemyTankSpawnerService.Instance.SpawnAnRandomenemyTank();
+    }
+
+    public void Enable()
+    {
+        EnemyTankView.Enable();
+        EnemyTankView.SetEnemyTankController(this);
+        Debug.Log("Enemy tank type is " + EnemyTankModel.EnemyTankScriptableObject.TankType);
+    }
+
+    public void Disable()
+    {
+        AchievementService.Instance.enemiesKilledAchievement.OnActionPerformed();
+        EnemyTankSpawnerService.Instance.SpawnAnRandomenemyTank();
+        EnemyTankObjectPool.Instance.ReturnPooledObject(this);
+        EnemyTankView.Disable();
+        EnemyTankModel.ResetHealth();
     }
 }

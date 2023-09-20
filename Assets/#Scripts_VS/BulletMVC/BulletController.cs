@@ -54,6 +54,6 @@ public class BulletController
     public void Disable()
     {
         BulletView.Disable();
-        BulletObjectPool.Instance.RetuenPooledObject(this);
+        BulletObjectPool.Instance.ReturnPooledObject(this);
     }
 }

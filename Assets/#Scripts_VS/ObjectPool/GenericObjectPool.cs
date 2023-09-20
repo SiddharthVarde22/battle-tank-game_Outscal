@@ -40,7 +40,7 @@ public class GenericObjectPool<T> : GenericSingleton<GenericObjectPool<T>> where
         return null;
     }
 
-    public virtual void RetuenPooledObject(T returningPooledItem)
+    public virtual void ReturnPooledObject(T returningPooledItem)
     {
         PoolObject<T> pooledObject = poolObjects.Find(pooledItem => pooledItem.poolItem.Equals(returningPooledItem));
         pooledObject.isActive = false;
