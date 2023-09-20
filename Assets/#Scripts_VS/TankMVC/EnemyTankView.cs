@@ -63,4 +63,9 @@ public class EnemyTankView : MonoBehaviour
         this.currentEnemyState = newEnemyState;
         this.currentEnemyState.OnEnterState(EnemyTankController);
     }
+
+    private void OnDestroy()
+    {
+        WorldRefrenceHolder.Instance.allEnemyTanks.Remove(this);
+    }
 }

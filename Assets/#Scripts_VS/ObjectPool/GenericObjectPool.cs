@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +10,7 @@ public class GenericObjectPool<T> : GenericSingleton<GenericObjectPool<T>> where
     }
 
     List<PoolObject<T>> poolObjects = new List<PoolObject<T>>();
-
-    public virtual T GetPooledObject()
+    protected virtual T GetPooledObject()
     {
         if(poolObjects.Count > 0)
         {
@@ -28,7 +26,7 @@ public class GenericObjectPool<T> : GenericSingleton<GenericObjectPool<T>> where
         return CreateNewPooledObject();
     }
 
-    public T CreateNewPooledObject()
+    protected T CreateNewPooledObject()
     {
         PoolObject<T> pooledObject = new PoolObject<T>();
         pooledObject.poolItem = CreatePoolItemInPooledObject();
@@ -37,7 +35,7 @@ public class GenericObjectPool<T> : GenericSingleton<GenericObjectPool<T>> where
         return pooledObject.poolItem;
     }
 
-    public virtual T CreatePoolItemInPooledObject()
+    protected virtual T CreatePoolItemInPooledObject()
     {
         return null;
     }
