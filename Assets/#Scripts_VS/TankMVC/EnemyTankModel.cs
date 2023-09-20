@@ -8,4 +8,9 @@ public class EnemyTankModel : CommonTankModel
         EnemyTankScriptableObject = enemyTankScriptableObject;
         Health = enemyTankScriptableObject.Health;
     }
+
+    public void ResetHealth()
+    {
+        Health = EnemyTankScriptableObject.Health;
+    }
 }

@@ -9,7 +9,7 @@ public class TankMovementController_Old : MonoBehaviour
     private float tankMoveSpeed = 10;
 
     //To convert 2d Input in 3D.
-    Vector3 inputDirection = Vector3.zero;
+    private Vector3 inputDirection = Vector3.zero;
 
     private void Update()
     {

@@ -6,14 +6,11 @@ public class EnemyTankController
     private EnemyTankModel EnemyTankModel;
     private EnemyTankView EnemyTankView;
 
-    public bool IsMoving { get; private set; }
-
     public EnemyTankController(EnemyTankModel enemyTankModel, EnemyTankView enemyTankView)
     {
         this.EnemyTankModel = enemyTankModel;
         this.EnemyTankView = GameObject.Instantiate<EnemyTankView>(enemyTankView);
         this.EnemyTankView.SetEnemyTankController(this);
-        IsMoving = false;
     }
 
     public void TakeDamage(float damage)
@@ -22,8 +19,7 @@ public class EnemyTankController
 
         if(EnemyTankModel.Health <= 0)
         {
-            OnEnemyGotKilled();
-            GameObject.Destroy(EnemyTankView.gameObject);
+            Disable();
         }
     }
 
@@ -42,9 +38,18 @@ public class EnemyTankController
         BulletSpawnService.Instance.SpawnBullet(EnemyTankModel.EnemyTankScriptableObject.Damage,shootPoint.position, shootPoint.rotation);
     }
 
-    private void OnEnemyGotKilled()
+    public void Enable()
+    {
+        EnemyTankView.Enable();
+        EnemyTankView.SetEnemyTankController(this);
+    }
+
+    public void Disable()
     {
         AchievementService.Instance.enemiesKilledAchievement.OnActionPerformed();
         EnemyTankSpawnerService.Instance.SpawnAnRandomenemyTank();
+        EnemyTankObjectPool.Instance.ReturnPooledObject(this);
+        EnemyTankView.Disable();
+        EnemyTankModel.ResetHealth();
     }
 }

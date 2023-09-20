@@ -11,13 +11,11 @@ public class BulletController
         this.BulletModel = bulletModel;
         this.BulletView = GameObject.Instantiate<BulletView>(bulletView);
         this.BulletView.SetBulletController(this);
-        SetPositionAndRotaion(bulletModel.StartPosition, bulletModel.StartRotation);
-        ShootTheBullet();
     }
 
     public void ShootTheBullet()
     {
-        BulletView.GetComponent<Rigidbody>().AddForce(BulletModel.InitialForce * BulletView.transform.forward, ForceMode.Impulse);
+        BulletView.rigidbody.AddForce(BulletModel.InitialForce * BulletView.transform.forward, ForceMode.Impulse);
     }
 
     public void SetPositionAndRotaion(Vector3 position, Quaternion rotation)
@@ -39,6 +37,20 @@ public class BulletController
             enemytank.TakeDamage(BulletModel.Damage);
         }
 
-        GameObject.Destroy(BulletView.gameObject);
+        Disable();
+    }
+
+    public void Enable(float initialForce, float damage,Vector3 startPosition, Quaternion startRotation)
+    {
+        BulletModel.SetProperties(initialForce, damage, startPosition, startRotation);
+        SetPositionAndRotaion(BulletModel.StartPosition, BulletModel.StartRotation);
+        BulletView.Enable();
+        ShootTheBullet();
+    }
+
+    public void Disable()
+    {
+        BulletView.Disable();
+        BulletObjectPool.Instance.ReturnPooledObject(this);
     }
 }

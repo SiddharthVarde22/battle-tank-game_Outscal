@@ -180,6 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349053239}
   - component: {fileID: 349053240}
+  - component: {fileID: 349053241}
   m_Layer: 0
   m_Name: BulletSpawnService
   m_TagString: Untagged
@@ -216,6 +217,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletScriptableObject: {fileID: 11400000, guid: 243ba5a19d0f92c4db83bb571d9ef2a7,
     type: 2}
+  BulletObjectPool: {fileID: 349053241}
+--- !u!114 &349053241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349053238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6196968f9fac04abf990189fbc06f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &557938094
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557938095}
   - component: {fileID: 557938096}
+  - component: {fileID: 557938097}
   m_Layer: 0
   m_Name: EnemtTankSpawnerService
   m_TagString: Untagged
@@ -262,6 +277,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyTankScriptableObjectsList: {fileID: 11400000, guid: 72d3adba23b400549a118260fb6f37da,
     type: 2}
+  enemyTankObjectPool: {fileID: 557938097}
+--- !u!114 &557938097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557938094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489e6ebf16a8b9641a98aa345a031e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &648702435
 GameObject:
   m_ObjectHideFlags: 0

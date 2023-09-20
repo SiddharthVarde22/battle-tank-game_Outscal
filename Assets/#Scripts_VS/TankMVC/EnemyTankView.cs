@@ -11,15 +11,14 @@ public class EnemyTankView : MonoBehaviour
     private Chase_EnemyState chase_EnemyState;
     private Attack_EnemyState attack_EnemyState;
 
+    [SerializeField]
+    private float maxXPosition = 20, minXPosition = -20, maxZPosition = 20, minZPosition = -20; 
+
     // Start is called before the first frame update
     private void Start()
     {
         WorldRefrenceHolder.Instance.allEnemyTanks.Add(this);
-        idle_EnemyState = GetComponent<Idle_EnemyState>();
-        petrol_EnemyState = GetComponent<Petrol_EnemyState>();
-        chase_EnemyState = GetComponent<Chase_EnemyState>();
-        attack_EnemyState = GetComponent<Attack_EnemyState>();
-
+        FindRefrencesOfStates();
         ChangeEnemyState(EnemyStates_Enum.Idle);
     }
 
@@ -52,7 +51,7 @@ public class EnemyTankView : MonoBehaviour
         }
     }
 
-    void OnEnemyStateChanged(EnemyState newEnemyState)
+    private void OnEnemyStateChanged(EnemyState newEnemyState)
     {
         if (this.currentEnemyState != null)
         {
@@ -62,5 +61,32 @@ public class EnemyTankView : MonoBehaviour
 
         this.currentEnemyState = newEnemyState;
         this.currentEnemyState.OnEnterState(EnemyTankController);
+    }
+
+    public void Enable()
+    {
+        FindRefrencesOfStates();
+        ResetPositionAndRotation();
+        gameObject.SetActive(true);
+    }
+
+    public void Disable()
+    {
+        ChangeEnemyState(EnemyStates_Enum.Idle);
+        gameObject.SetActive(false);
+    }
+
+    private void FindRefrencesOfStates()
+    {
+        idle_EnemyState = GetComponent<Idle_EnemyState>();
+        petrol_EnemyState = GetComponent<Petrol_EnemyState>();
+        chase_EnemyState = GetComponent<Chase_EnemyState>();
+        attack_EnemyState = GetComponent<Attack_EnemyState>();
+    }
+
+    private void ResetPositionAndRotation()
+    {
+        transform.SetPositionAndRotation(new Vector3(Random.Range(minXPosition, maxXPosition), 0,
+            Random.Range(minZPosition, maxZPosition)), Quaternion.identity);
     }
 }
