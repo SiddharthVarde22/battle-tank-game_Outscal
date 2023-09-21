@@ -4,10 +4,10 @@ using TMPro;
 public class ScoreShow : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI gameOverText;
+    private TextMeshProUGUI gameOverText;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         UpdateScore();
     }

@@ -3,13 +3,13 @@ using TMPro;
 
 public class AchievementUIBehaviour : MonoBehaviour
 {
-    Animator animator;
+    private Animator animator;
     [SerializeField]
-    string nameOfAnimation;
-    int hashOfAnimation;
+    private string nameOfAnimation;
+    private int hashOfAnimation;
 
     [SerializeField]
-    TextMeshProUGUI achievementText;
+    private TextMeshProUGUI achievementText;
 
     private void Start()
     {

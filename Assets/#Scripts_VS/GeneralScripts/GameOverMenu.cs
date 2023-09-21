@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class GameOverMenu : MonoBehaviour
 {
     [SerializeField]
-    Button restartButton, mainMenuButton;
+    private Button restartButton, mainMenuButton;
 
     private void Start()
     {
