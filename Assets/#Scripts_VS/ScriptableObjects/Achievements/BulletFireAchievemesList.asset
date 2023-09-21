@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333c5c189fbc4924e94ddf7b290234ca, type: 3}
   m_Name: BulletFireAchievemesList
   m_EditorClassIdentifier: 
+  nameOfAchievement: BulletsFired
   acheivements: 0a0000001900000032000000

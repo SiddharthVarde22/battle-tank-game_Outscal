@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TimeSurvivedAchievement : Achivement
 {
-    public event Action<int> timeSurvivedAchievementEvent;
+    public event Action<int, string> timeSurvivedAchievementEvent;
 
     public TimeSurvivedAchievement(AchievementListScriptableObject achievementList) : base(achievementList)
     {
@@ -15,7 +15,7 @@ public class TimeSurvivedAchievement : Achivement
 
     protected override void OnAchievementAchieved()
     {
-        timeSurvivedAchievementEvent?.Invoke(valueToAchieve);
+        timeSurvivedAchievementEvent?.Invoke(valueToAchieve, achievementListScriptable.nameOfAchievement);
         indexOfValueToAchieve++;
         GetNewValueToAchieve();
     }

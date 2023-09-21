@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletsShootAchivement : Achivement
 {
-    public event Action<int> bulletsFiredAchievementEvent;
+    public event Action<int, string> bulletsFiredAchievementEvent;
 
     public BulletsShootAchivement(AchievementListScriptableObject achievementList) : base(achievementList)
     {
@@ -15,7 +15,7 @@ public class BulletsShootAchivement : Achivement
 
     protected override void OnAchievementAchieved()
     {
-        bulletsFiredAchievementEvent?.Invoke(valueToAchieve);
+        bulletsFiredAchievementEvent?.Invoke(valueToAchieve, achievementListScriptable.nameOfAchievement);
         indexOfValueToAchieve++;
         GetNewValueToAchieve();
     }

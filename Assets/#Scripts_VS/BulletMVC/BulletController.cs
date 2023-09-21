@@ -18,7 +18,7 @@ public class BulletController
         BulletView.rigidbody.AddForce(BulletModel.InitialForce * BulletView.transform.forward, ForceMode.Impulse);
     }
 
-    public void SetPositionAndRotaion(Vector3 position, Quaternion rotation)
+    public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
     {
         BulletView.transform.SetPositionAndRotation(position, rotation);
     }
@@ -43,7 +43,7 @@ public class BulletController
     public void Enable(float initialForce, float damage,Vector3 startPosition, Quaternion startRotation)
     {
         BulletModel.SetProperties(initialForce, damage, startPosition, startRotation);
-        SetPositionAndRotaion(BulletModel.StartPosition, BulletModel.StartRotation);
+        SetPositionAndRotation(BulletModel.StartPosition, BulletModel.StartRotation);
         BulletView.Enable();
         ShootTheBullet();
     }
