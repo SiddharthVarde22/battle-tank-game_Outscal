@@ -47,6 +47,7 @@ public class EnemyTankController
     public void Disable()
     {
         AchievementService.Instance.enemiesKilledAchievement.OnActionPerformed();
+        ScoreService.Instance.IncreasePlayerScore(1);
         EnemyTankSpawnerService.Instance.SpawnAnRandomenemyTank();
         EnemyTankObjectPool.Instance.ReturnPooledObject(this);
         EnemyTankView.Disable();

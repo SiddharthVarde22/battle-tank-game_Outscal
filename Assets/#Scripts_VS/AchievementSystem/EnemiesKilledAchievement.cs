@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemiesKilledAchievement : Achivement
 {
-    public event Action<int> enemiesKilledAchievementEvent;
+    public event Action<int, string> enemiesKilledAchievementEvent;
 
     public EnemiesKilledAchievement(AchievementListScriptableObject achievementList) : base(achievementList)
     {
@@ -15,7 +15,7 @@ public class EnemiesKilledAchievement : Achivement
 
     protected override void OnAchievementAchieved()
     {
-        enemiesKilledAchievementEvent?.Invoke(valueToAchieve);
+        enemiesKilledAchievementEvent?.Invoke(valueToAchieve, achievementListScriptable.nameOfAchievement);
         indexOfValueToAchieve++;
         GetNewValueToAchieve();
     }
