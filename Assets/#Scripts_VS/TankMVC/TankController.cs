@@ -13,9 +13,9 @@ public class TankController
         TankView.SetTankController(this);
         WorldRefrenceHolder.Instance.playerTank = TankView;
 
-        AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent += OnBulletsShootEventTriggered;
-        AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent += OnEnemiesKilledEventTriggered;
-        AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent += OnTimeSurvivedEventTriggered;
+        //AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent += OnBulletsShootEventTriggered;
+        //AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent += OnEnemiesKilledEventTriggered;
+        //AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent += OnTimeSurvivedEventTriggered;
     }
 
     public void PlayerMove(float verticalInput)
@@ -36,26 +36,26 @@ public class TankController
         AchievementService.Instance.bulletsShootAchivement.OnActionPerformed();
     }
 
-    public void OnBulletsShootEventTriggered(int numberOfbulletsShooted)
-    {
-        //I will add apropiate functionalities later
-        // right now i have just created an observer system
-        Debug.Log("Player shooted " + numberOfbulletsShooted + " bullets");
-    }
+    //public void OnBulletsShootEventTriggered(int numberOfbulletsShooted)
+    //{
+    //    //I will add apropiate functionalities later
+    //    // right now i have just created an observer system
+    //    Debug.Log("Player shooted " + numberOfbulletsShooted + " bullets");
+    //}
 
-    public void OnEnemiesKilledEventTriggered(int numberOfKilledEnemies)
-    {
-        //I will add apropiate functionalities later
-        // right now i have just created an observer system
-        Debug.Log("Player Killed " + numberOfKilledEnemies + " Enemies");
-    }
+    //public void OnEnemiesKilledEventTriggered(int numberOfKilledEnemies)
+    //{
+    //    //I will add apropiate functionalities later
+    //    // right now i have just created an observer system
+    //    Debug.Log("Player Killed " + numberOfKilledEnemies + " Enemies");
+    //}
 
-    public void OnTimeSurvivedEventTriggered(int timeSurvived)
-    {
-        //I will add apropiate functionalities later
-        // right now i have just created an observer system
-        Debug.Log("Player Survived " + timeSurvived + " Seconds");
-    }
+    //public void OnTimeSurvivedEventTriggered(int timeSurvived)
+    //{
+    //    //I will add apropiate functionalities later
+    //    // right now i have just created an observer system
+    //    Debug.Log("Player Survived " + timeSurvived + " Seconds");
+    //}
 
     public void TakeDamage(float damage)
     {
@@ -97,8 +97,8 @@ public class TankController
 
     ~TankController()
     {
-        AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent -= OnBulletsShootEventTriggered;
-        AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent -= OnEnemiesKilledEventTriggered;
-        AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent -= OnTimeSurvivedEventTriggered;
+        //AchievementService.Instance.bulletsShootAchivement.bulletsFiredAchievementEvent -= OnBulletsShootEventTriggered;
+        //AchievementService.Instance.enemiesKilledAchievement.enemiesKilledAchievementEvent -= OnEnemiesKilledEventTriggered;
+        //AchievementService.Instance.timeSurvivedAchievement.timeSurvivedAchievementEvent -= OnTimeSurvivedEventTriggered;
     }
 }
