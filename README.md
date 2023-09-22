@@ -2,6 +2,9 @@
 Training project using Unity's Battle Tank base artwork_Outscal <br>
 3D battletank game developed in Unity using artwork of Battletank game from unity.
 
+### Disclaimer
+ - Game is in development, There are few changes needed that i will Add as soon as possible.
+
 ### Description
 It is a 3d Game developed using Unity and C#, where player needs to survive and kill as many as enemy tanks as possibe.
 
